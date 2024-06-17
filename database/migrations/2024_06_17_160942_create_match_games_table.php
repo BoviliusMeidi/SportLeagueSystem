@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('match_games', function (Blueprint $table) {
             $table->id('match_id');
-            $table->integer('home_team_id');
-            $table->integer('away_team_id');
+            $table->foreignId('home_team_id')->constrained('teams', 'team_id');
+            $table->foreignId('away_team_id')->constrained('teams', 'team_id');
             $table->date('match_date');
             $table->time('match_time');
-            $table->integer('venue_id');
-            $table->integer('league_id');
+            $table->foreignId('venue_id')->constrained('venues', 'venue_id');
+            $table->foreignId('league_id')->constrained('leagues', 'league_id');
             $table->string('referee');
             $table->integer('home_team_goal');
             $table->integer('away_team_goal');
