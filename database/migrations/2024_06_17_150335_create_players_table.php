@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->id('playerId');
+            $table->string('name');
+            $table->integer('age');
+            $table->string('position');
+            $table->foreignId('teamId')->nullable()->constrained('teams', 'teamId');
+            $table->integer('jerseyNo');
             $table->timestamps();
         });
 
