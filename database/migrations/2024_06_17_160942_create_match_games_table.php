@@ -12,7 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('match_games', function (Blueprint $table) {
-            $table->id();
+            $table->id('match_id');
+            $table->integer('home_team_id');
+            $table->integer('away_team_id');
+            $table->date('match_date');
+            $table->time('match_time');
+            $table->integer('venue_id');
+            $table->integer('league_id');
+            $table->string('referee');
+            $table->integer('home_team_goal');
+            $table->integer('away_team_goal');
+            $table->string('winner');
             $table->timestamps();
         });
     }
