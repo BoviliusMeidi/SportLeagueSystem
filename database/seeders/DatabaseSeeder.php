@@ -2,7 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\League;
+use App\Models\MatchGame;
+use App\Models\Player;
+use App\Models\Team;
 use App\Models\User;
+use App\Models\Venue;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,11 +18,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        Player::factory(100)->recycle(
+            Team::factory(10)->recycle([
+                League::factory(5)->create(),
+                Venue::factory(10)->create()
+            ])->create()
+        )->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        MatchGame::factory(200)->create();
     }
 }

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class MatchGame extends Model
 {
     use HasFactory;
-
+    protected $primaryKey = 'match_id';
     protected $fillable = [
         'home_team_id',
         'away_team_id',

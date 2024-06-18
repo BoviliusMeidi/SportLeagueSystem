@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Venue extends Model
 {
     use HasFactory;
-
+    protected $primaryKey = 'venue_id';
     protected $fillable = [
         'name',
         'country',

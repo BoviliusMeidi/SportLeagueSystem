@@ -19,13 +19,17 @@ class MatchGameFactory extends Factory
      */
     public function definition(): array
     {
+        $teams = Team::pluck('team_id');
+        $venues = Venue::pluck('venue_id');
+        $leagues = League::pluck('league_id');
+
         return [
-            'home_team_id' => Team::factory(),
-            'away_team_id' => Team::factory(),
+            'home_team_id' => $this->faker->randomElement($teams),
+            'away_team_id' => $this->faker->randomElement($teams),
             'match_date' => $this->faker->date(),
             'match_time' => $this->faker->time(),
-            'venue_id' => Venue::factory(),
-            'league_id' => League::factory(),
+            'venue_id' => $this->faker->randomElement($venues),
+            'league_id' => $this->faker->randomElement($leagues),
             'referee' => $this->faker->name(),
             'home_team_goal' => $this->faker->randomDigit(),
             'away_team_goal' => $this->faker->randomDigit(),

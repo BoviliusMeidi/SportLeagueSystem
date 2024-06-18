@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Team extends Model
 {
     use HasFactory;
-
+    protected $primaryKey = 'team_id';
     protected $fillable = [
         'name',
         'country',

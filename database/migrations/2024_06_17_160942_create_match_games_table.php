@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('match_games', function (Blueprint $table) {
-            $table->id('match_id');
+            $table->bigIncrements('match_id');
             $table->foreignId('home_team_id')->constrained('teams', 'team_id');
             $table->foreignId('away_team_id')->constrained('teams', 'team_id');
             $table->date('match_date');

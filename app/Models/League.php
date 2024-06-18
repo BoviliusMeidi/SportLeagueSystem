@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class League extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'league_id';
     protected $fillable =[
         'name',
         'region'
