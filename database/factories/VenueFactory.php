@@ -17,7 +17,10 @@ class VenueFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->name(),
+            'country' => $this->faker->country(),
+            'city' => $this->faker->city(),
+            'capacity' => $this->faker->numberBetween(25000, 95000)
         ];
     }
 }

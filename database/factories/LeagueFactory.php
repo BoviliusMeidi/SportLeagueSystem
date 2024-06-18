@@ -17,7 +17,8 @@ class LeagueFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name'=> $this->faker->company(),
+            'region' => $this->faker->country()
         ];
     }
 }
