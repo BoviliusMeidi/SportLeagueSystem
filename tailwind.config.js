@@ -6,6 +6,9 @@ export default {
         "./resources/**/*.js",
         "./resources/**/*.vue",
     ],
+
+    darkMode: "selector",
+
     theme: {
         colors: {
             transparent: colors.transparent,
@@ -13,6 +16,7 @@ export default {
                 100: '#BBDEFB',
                 200: '#64B5F6',
                 300: '#1976D2',
+                dark: '#1B263B',
             },
             text: {
                 100: '#000000',
