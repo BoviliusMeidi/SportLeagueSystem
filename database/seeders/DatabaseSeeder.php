@@ -26,5 +26,6 @@ class DatabaseSeeder extends Seeder
         )->create();
 
         MatchGame::factory(200)->create();
+        User::factory(100)->create();
     }
 }
