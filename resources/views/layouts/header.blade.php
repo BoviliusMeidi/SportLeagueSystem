@@ -31,7 +31,7 @@
         </div>
         <div class="">
             @if (Request::is('homepage'))
-            <a href="">
+            <a href="{{ route('register')}}">
                 <span class="material-symbols-sharp bg-primary-100 hover:bg-primary-200 hover:text-text-300 rounded-full py-2 px-2">
                     account_circle
                 </span>
