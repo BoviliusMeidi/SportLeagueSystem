@@ -20,3 +20,7 @@ Route::controller(AuthenticationController::class)->group(function () {
 Route::controller(VenueController::class)->group(function(){
     Route::get('/venue', 'getVenues')->name('venue');
 });
+
+Route::controller(LeagueController::class)->group(function(){
+    Route::get('/league', 'getLeagues')->name('league');
+});

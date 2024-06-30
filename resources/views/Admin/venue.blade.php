@@ -17,27 +17,26 @@
             </thead>
             <tbody>
                 @foreach ($venues as $venue)
-                <tr>
-                    <td class="border border-gray-300 px-4 py-2">{{ $venue->venue_id }}</td>
-                    <td class="border border-gray-300 px-4 py-2">{{ $venue->name }}</td>
-                    <td class="border border-gray-300 px-4 py-2">{{ $venue->country }}</td>
-                    <td class="border border-gray-300 px-4 py-2">{{ $venue->city }}</td>
-                    <td class="border border-gray-300 px-4 py-2">{{ $venue->capacity }}</td>
-                </tr>
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">{{ $venue->venue_id }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ $venue->name }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ $venue->country }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ $venue->city }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ $venue->capacity }}</td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
-    </div>
-    <br>
-    <div>
-        {{ $venues->links() }}
-    </div>
-    <div>
-        @if ($venues->hasMorePages())
-            <a href="{{ $venues->nextPageUrl() }}">
-            </a>
-        @endif
-    </div>
+        <br>
+        <div>
+            {{ $venues->links() }}
+        </div>
+        <div>
+            @if ($venues->hasMorePages())
+                <a href="{{ $venues->nextPageUrl() }}">
+                </a>
+            @endif
+        </div>
     </main>
     @include('layouts.footer')
 </body>
