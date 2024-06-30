@@ -49,11 +49,15 @@
                 </div>
                 <div>
                     <button type="submit"
-                        class="flex w-full justify-center rounded-md bg-primary-200 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-300">Create
+                        class="flex w-full justify-center rounded-md bg-primary-200 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-300 hover:text-text-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-300">Create
                         account</button>
                 </div>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             </form>
+            <p class="mt-10 text-center text-sm">
+                I already have an account,
+              <a href="login" class="font-semibold leading-6 text-text-100 hover:underline">Sign in</a>
+            </p>
         </div>
     </main>
 </body>
