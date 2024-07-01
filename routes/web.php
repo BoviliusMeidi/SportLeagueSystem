@@ -19,6 +19,11 @@ Route::controller(AuthenticationController::class)->group(function () {
 
 Route::controller(VenueController::class)->group(function(){
     Route::get('/venue', 'getVenues')->name('venue');
+    Route::get('/venue/add', 'addVenue')->name('addVenue');
+    Route::post('/venue/add', 'createVenue')->name('createVenue');
+    Route::get('/venue/{venue}/edit', 'editVenue')->name('editVenue');
+    Route::post('/venue/{venue}/edit', 'updateVenue')->name('updateVenue');
+    Route::delete('/venue/{venue}/delete', 'deleteVenue')->name('deleteVenue');
 });
 
 Route::controller(LeagueController::class)->group(function(){
