@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('country');
             $table->integer('founded');
             $table->foreignId('league_id')->constrained('leagues', 'league_id');
-            $table->foreignId('venue_id')->constrained('venues', 'venue_id');
+            $table->foreignId('venue_id')->nullable()->constrained('venues', 'venue_id')->onDelete('set null');
             $table->timestamps();
         });
     }
