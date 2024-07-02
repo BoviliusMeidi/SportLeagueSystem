@@ -25,10 +25,12 @@
                         <td class="border border-gray-300 px-4 py-2">{{ $venue->country }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $venue->city }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $venue->capacity }}</td>
-                        <td class="border border-gray-300 py-2 text-center"><a href="{{ route('editVenue', ['venue' => $venue->venue_id]) }}"
+                        <td class="border border-gray-300 py-2 text-center"><a
+                                href="{{ route('editVenue', ['venue' => $venue->venue_id]) }}"
                                 class="bg-blue-300 px-6 rounded-lg py-0.5">Edit</a></td>
                         <td class="border border-gray-300 px-4 py-2 ">
-                            <form method="POST" action="{{ route('deleteVenue', ['venue' => $venue->venue_id]) }}" class="bg-red-600 text-white rounded-lg">
+                            <form method="POST" action="{{ route('deleteVenue', ['venue' => $venue->venue_id]) }}"
+                                class="bg-red-600 text-white rounded-lg">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="w-full">Delete</button>
