@@ -28,4 +28,9 @@ Route::controller(VenueController::class)->group(function(){
 
 Route::controller(LeagueController::class)->group(function(){
     Route::get('/league', 'getLeagues')->name('league');
+    Route::get('/league/add', 'addLeague')->name('addLeague');
+    Route::post('/league/add', 'createLeague')->name('createLeague');
+    Route::get('/league/{league}/edit', 'editLeague')->name('editLeague');
+    Route::post('/league/{league}/edit', 'updateLeague')->name('updateLeague');
+    Route::delete('/league/{league}/delete', 'deleteLeague')->name('deleteLeague');
 });
