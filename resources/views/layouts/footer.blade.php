@@ -1,6 +1,8 @@
 <footer class="bg-primary-300 text-text-300 px-6">
     <div>
-        <h2 class="text-2xl text-center py-4">SportLeagueSystem</h2>
+        <a href="{{ route('homepage') }}">
+            <h2 class="text-2xl text-center py-4">SportLeagueSystem</h2>
+        </a>
         <hr class="py-2">
     </div>
     <div class="flex flex-col md:flex-row pb-4 items-center md:space-x-6">

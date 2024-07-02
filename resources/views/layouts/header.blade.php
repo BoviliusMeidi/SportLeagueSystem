@@ -1,6 +1,6 @@
 <header class="bg-primary-300 text-text-300 py-5 px-6 flex justify-between items-center">
     <div class="flex-row items-center px-8">
-        <a href="" class="flex items-center ">
+        <a href="{{ route('homepage') }}" class="flex items-center ">
             <span
                 class="material-symbols-sharp bg-primary-100 text-text-100 hover:bg-primary-200 hover:text-text-300 rounded-full py-2 px-2 mr-5">
                 sports_soccer
@@ -10,11 +10,11 @@
     </div>
     <div class="flex-row items-center px-8">
         <form action="" method="GET" class="rounded-full bg-primary-100  w-screen max-w-md flex items-center">
-            <span class="material-symbols-sharp text-text-100 rounded-full ml-2 py-2 px-2 ">
+            <span class="material-symbols-sharp cursor-pointer text-text-100 rounded-full ml-2 py-2 px-2 ">
                 search
             </span>
-            <input type="text" name="query" id="" placeholder="Search..."
-                class="ml-3 text-text-100 focus:outline-none bg-transparent placeholder-text-200">
+            <input type="text" name="query" id="" placeholder="Search..." autocomplete="off"
+                class="ml-3 w-full text-text-100 focus:outline-none bg-transparent placeholder-text-200">
         </form>
     </div>
     <div class="flex items-center px-8 mx-4 text-xl text-text-100">
