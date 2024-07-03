@@ -3,8 +3,9 @@
 @include('layouts.head')
 
 <body class="bg-primary-100 dark:bg-primary-dark">
+    @include('layouts.notification')
     @include('layouts.header')
-    <main class="px-28 py-8">
+    <main class="px-28 py-8 h-screen">
         <table class="w-full mb-2 bg-white shadow-lg rounded-md border border-gray-300">
             <thead>
                 <tr>

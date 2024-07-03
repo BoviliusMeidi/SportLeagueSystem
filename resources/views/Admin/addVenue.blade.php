@@ -3,6 +3,7 @@
 @include('layouts.head')
 
 <body class="bg-primary-100 dark:bg-primary-dark overflow-hidden">
+    @include('layouts.notification')
     @include('layouts.header')
     <main class="px-28 py-8 mb-10">
         <form method="POST" action="{{ route('createVenue') }}" class="w-full flex flex-col items-center">
