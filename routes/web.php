@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\VenueController;
 use App\Http\Controllers\LeagueController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AuthenticationController;
 
 Route::get('/', function () {
@@ -41,3 +42,5 @@ Route::prefix('admin')->group(function () {
 Route::controller(TeamController::class)->group(function(){
     Route::get('/team', 'viewAllTeam')->name('team');
 });
+
+Route::get('/search', [SearchController::class, 'search'])->name('search');
