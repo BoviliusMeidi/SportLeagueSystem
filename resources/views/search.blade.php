@@ -10,7 +10,7 @@
     </h1>
     <article class="grid grid-cols-5 gap-4 mx-24 my-12 hover:animate-background rounded-xl bg-gradient-to-r">
         @foreach ($teams as $team)
-            <a href="#" class="block">
+            <a href="{{ route('detailTeam', ['name'=> $team->name]) }}" class="block">
                 <div class="rounded-[10px] w-full h-40 bg-white p-4 !pt-6 sm:p-6 hover:bg-gray-400">
                     <img src="{{ asset('images/clubs/Manchester-United.png') }}" alt="Club" width="96">
                     <h3 class="mt-5 text-lg font-bold text-gray-900">
