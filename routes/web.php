@@ -41,6 +41,7 @@ Route::prefix('admin')->group(function () {
 
 Route::controller(TeamController::class)->group(function(){
     Route::get('/team', 'viewAllTeam')->name('team');
+    Route::get('/{name}', 'detailTeam')->name('detailTeam');
 });
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');

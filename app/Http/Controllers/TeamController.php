@@ -11,4 +11,9 @@ class TeamController extends Controller
         $teamData = Team::paginate(20);
         return view('Team.allTeam', ['teams' => $teamData]);
     }
+
+    public function detailTeam($name){
+        $team = Team::where('name', $name)->first();
+        return view('Team.detailTeam', ['team'=> $team]);
+    }
 }
