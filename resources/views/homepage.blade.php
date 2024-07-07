@@ -7,7 +7,7 @@
     <div class="flex h-auto dark:bg-primary-dark">
         <section class="basis-1/4 overflow-hidden py-5 bg-blue-300 px-10 break-words dark:bg-blue-800">
             <div class="bg-green-200 rounded-xl">
-                <table class="">
+                <table class="w-full">
                     <thead>
                         <tr>
                             <div>
@@ -36,12 +36,48 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <div class="flex justify-center py-2">
-                                <a href=""
-                                    class="bg-red-10 w-2/3 text-center border-2 border-gray-600 rounded-lg">
+                            <td class="flex w-full justify-center items-center text-center py-2">
+                                <a href="#" class="bg-red-500 text-white py-2 px-4 rounded-lg">
                                     View All Match Games
                                 </a>
-                            </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="bg-green-200 rounded-xl mt-3">
+                <div class="text-center mb-4">
+                    <h1 class="font-bold text-lg">League Name</h1>
+                </div>
+                <table class="w-full bg-white rounded-lg shadow-md">
+                    <thead>
+                        <tr class="">
+                            <th class="px-4 py-2">Pos</th>
+                            <th class="px-4 py-2">Club</th>
+                            <th class="px-4 py-2">Pl</th>
+                            <th class="px-4 py-2">GD</th>
+                            <th class="px-4 py-2">Pts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center">
+                            <td class="px-4 py-2">1</td>
+                            <td class="px-4 py-2">Arsenal</td>
+                            <td class="px-4 py-2">1</td>
+                            <td class="px-4 py-2">1</td>
+                            <td class="px-4 py-2">1</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5" class="text-center py-2">
+                                <a href="#" class="bg-red-500 text-white py-2 px-4 rounded-lg">
+                                    View More
+                                    <span class="material-symbols-sharp">
+                                        trending_flat
+                                    </span>
+                                </a>
+                            </td>
                         </tr>
                     </tfoot>
                 </table>
