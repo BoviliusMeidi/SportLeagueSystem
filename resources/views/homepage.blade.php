@@ -4,8 +4,8 @@
 
 <body class="bg-primary-100 dark:bg-primary-dark">
     @include('layouts.header')
-    <div class="flex h-auto">
-        <section class="basis-1/4 overflow-hidden py-5 bg-blue-300 px-10 break-words">
+    <div class="flex h-auto dark:bg-primary-dark">
+        <section class="basis-1/4 overflow-hidden py-5 bg-blue-300 px-10 break-words dark:bg-blue-800">
             <div class="bg-green-200 rounded-xl">
                 <table class="">
                     <thead>
@@ -48,26 +48,39 @@
             </div>
         </section>
         <section class="basis-3/4 overflow-hidden p-5 break-words">
-            <div class="flex flex-row bg-lime-200 h-full">
-                <div class="basis-2/3 flex object-center bg-gray-300 justify-center m-2">
+            <div class="flex flex-row h-full">
+                <div class="basis-2/3 flex object-center justify-center m-2">
                     <a href="">
                         <img src="{{ asset('images/news/news-thumbnail.jpg') }}" alt="Club"
                             class="w-full h-auto rounded-lg shadow-md">
                         <label for="category" class="font-bold text-lg">News</label>
-                        <h1 class="text-4xl font-bold mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+                        <h1 class="text-4xl font-bold mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        </h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam molestias, ipsam aperiam libero
                             natus voluptas fugit vero, quaerat possimus similique perferendis mollitia. Dolor impedit
                             cupiditate architecto at quidem in molestiae.</p>
                     </a>
                 </div>
-                <div class="basis-1/3 flex flex-col m-2 bg-primary-200">
+                <div class="basis-1/3 grid grid-rows-2 m-2 gap-2">
                     <div>
-                        <img src="{{ asset('images/clubs/Manchester-United.png') }}" alt="Club"
-                            class="w-96 h-auto rounded-lg shadow-md">
+                        <a href="">
+                            <img src="{{ asset('images/news/news-thumbnail.jpg') }}" alt="Club"
+                                class="w-full h-auto rounded-lg shadow-md">
+                            <label for="category" class="font-bold text-lg">News</label>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam molestias, ipsam aperiam
+                                libero
+                                natus voluptas fugit vero, quaerat possimus </p>
+                        </a>
                     </div>
                     <div>
-                        <img src="{{ asset('images/clubs/Manchester-United.png') }}" alt="Club"
-                            class="w-96 h-auto rounded-lg shadow-md">
+                        <a href="">
+                            <img src="{{ asset('images/news/news-thumbnail.jpg') }}" alt="Club"
+                                class="w-full h-auto rounded-lg shadow-md">
+                            <label for="category" class="font-bold text-lg">News</label>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam molestias, ipsam aperiam
+                                libero
+                                natus voluptas fugit vero, quaerat possimus </p>
+                        </a>
                     </div>
                 </div>
             </div>
