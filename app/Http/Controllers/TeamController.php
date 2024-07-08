@@ -9,11 +9,11 @@ class TeamController extends Controller
 {
     public function viewAllTeam(){
         $teamData = Team::paginate(20);
-        return view('Team.allTeam', ['teams' => $teamData]);
+        return view('database.allTeam', ['teams' => $teamData]);
     }
 
     public function detailTeam($name){
         $team = Team::where('name', $name)->first();
-        return view('Team.detailTeam', ['team'=> $team]);
+        return view('database.detailTeam', ['team'=> $team]);
     }
 }
