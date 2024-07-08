@@ -1,6 +1,8 @@
 <?php
 
+use App\Providers\AppServiceProvider;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\APIController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\VenueController;
 use App\Http\Controllers\LeagueController;
@@ -19,7 +21,7 @@ Route::controller(AuthenticationController::class)->group(function () {
     Route::get('/logout', 'logout')->name('logout');
 });
 
-Route::prefix('admin')->group(function () {
+Route::prefix('database')->group(function () {
     Route::controller(VenueController::class)->group(function () {
         Route::get('/venue', 'getVenues')->name('venue');
         Route::get('/venue/add', 'addVenue')->name('addVenue');
@@ -37,11 +39,16 @@ Route::prefix('admin')->group(function () {
         Route::post('/league/{league}/edit', 'updateLeague')->name('updateLeague');
         Route::delete('/league/{league}/delete', 'deleteLeague')->name('deleteLeague');
     });
-});
 
-Route::controller(TeamController::class)->group(function(){
-    Route::get('/team', 'viewAllTeam')->name('team');
-    Route::get('/team/{name}', 'detailTeam')->name('detailTeam');
+    Route::controller(TeamController::class)->group(function () {
+        Route::get('/team', 'viewAllTeam')->name('team');
+        Route::get('/team/{name}', 'detailTeam')->name('detailsTeam');
+    });
 });
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
+
+Route::controller(APIController::class)->group(function () {
+    Route::get('/teams', 'getTeams')->name('allTeams');
+    Route::get('/team/{id}/{name}', 'detailTeam')->name('detailTeam');
+});
