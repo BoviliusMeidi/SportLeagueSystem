@@ -71,11 +71,13 @@
                             @foreach ($standings['response'][0]['league']['standings'][0] as $team)
                                 <tr class="text-center border-b">
                                     <td class="p-2 whitespace-nowrap">{{ $team['rank'] }}</td>
-                                    <td class="p-2 flex items-center justify-start whitespace-nowrap">
-                                        <img src="{{ $team['team']['logo'] }}" alt="{{ $team['team']['name'] }}"
+                                    <a href="{{ route('detailTeam', ['name'=> $team['team']['name'], 'id'=> $team['team']['id']]) }}">
+                                        <td class="p-2 flex items-center justify-start whitespace-nowrap">
+                                            <img src="{{ $team['team']['logo'] }}" alt="{{ $team['team']['name'] }}"
                                             class="w-6 h-6 mr-2">
-                                        {{ $team['team']['name'] }}
-                                    </td>
+                                            {{ $team['team']['name'] }}
+                                        </td>
+                                    </a>
                                     <td class="p-2 whitespace-nowrap">{{ $team['all']['played'] }}</td>
                                     <td class="p-2 whitespace-nowrap">{{ $team['goalsDiff'] }}</td>
                                     <td class="p-2 whitespace-nowrap">{{ $team['points'] }}</td>
@@ -86,7 +88,7 @@
                     <tfoot>
                         <tr>
                             <td colspan="5" class="text-center py-2">
-                                <a href="#"
+                                <a href="{{ route('standings') }}"
                                     class="bg-red-500 text-white py-2 px-4 rounded-lg inline-flex items-center justify-center">
                                     View More
                                     <span class="material-symbols-sharp ml-2">

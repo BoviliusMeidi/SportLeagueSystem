@@ -46,4 +46,12 @@ class APIController extends Controller
         }
         return view('homepage', compact('standings'));
     }
+    public function getDetailStandings(){
+        $standings = $this->serviceProvider->getStandings();
+        if (isset($standings['errors']) && !empty($standings['errors'])) {
+            session()->flash('error', $standings['errors']['requests']);
+            return view('standings', ['standings' => []]);
+        }
+        return view('standings', compact('standings'));
+    }
 }

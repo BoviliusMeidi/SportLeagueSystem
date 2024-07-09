@@ -9,7 +9,13 @@ use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AuthenticationController;
 
-Route::get('/', [APIController::class, 'getStandings'])->name('homepage');
+Route::controller(APIController::class)->group(function () {
+    Route::get('/','getStandings')->name('homepage');
+    Route::get('/standings','getDetailStandings')->name('standings');
+    Route::get('/teams', 'getTeams')->name('allTeams');
+    Route::get('/team/{id}/{name}', 'detailTeam')->name('detailTeam');
+});
+
 
 Route::controller(AuthenticationController::class)->group(function () {
     Route::get('/register', 'register')->name('register');
@@ -46,7 +52,4 @@ Route::prefix('database')->group(function () {
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
-Route::controller(APIController::class)->group(function () {
-    Route::get('/teams', 'getTeams')->name('allTeams');
-    Route::get('/team/{id}/{name}', 'detailTeam')->name('detailTeam');
-});
+
