@@ -12,12 +12,12 @@
                     <h1 class="text-5xl font-extrabold text-white">{{$team['team']['name'] }}</h1>
                     <div class="flex flex-col md:flex-row md:space-x-5 space-y-2 md:space-y-0">
                         <h1 class="text-xl font-semibold">Est: {{ $team['team']['founded']}}</h1>
-                        <h1 class="text-xl font-semibold">{{ $team['team']['founded'] }}, {{ $team['team']['founded']}}, {{ $team['team']['founded'] }}</h1>
-                        <h1 class="text-xl font-semibold">Capacity: {{ $team['team']['founded'] }}</h1>
+                        <h1 class="text-xl font-semibold">{{ $team['venue']['name'] }}, {{ $team['venue']['city']}}</h1>
+                        <h1 class="text-xl font-semibold">Capacity: {{ $team['venue']['capacity'] }}</h1>
                     </div>
                 </div>
             </div>
-            <img src="{{ $team['team']['logo'] }}" alt="{{ $team['team']['logo'] }} Club" class="w-96 h-auto rounded-lg shadow-md">
+            <img src="{{ $team['venue']['image'] }}" alt="{{ $team['venue']['image'] }} Stadion" class="w-96 h-auto rounded-lg shadow-md">
         </div>
     </section>
     @include('layouts.footer')
