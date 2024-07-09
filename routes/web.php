@@ -9,9 +9,7 @@ use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AuthenticationController;
 
-Route::get('/', function () {
-    return view('homepage');
-})->name('homepage');
+Route::get('/', [APIController::class, 'getStandings'])->name('homepage');
 
 Route::controller(AuthenticationController::class)->group(function () {
     Route::get('/register', 'register')->name('register');

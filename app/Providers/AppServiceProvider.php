@@ -29,5 +29,7 @@ class AppServiceProvider extends ServiceProvider
     {
         return $this->fetchData('teams', $params);
     }
-
+    public function getStandings($params = ['league'=>39, 'season'=>2024]){
+        return $this->fetchData('standings', $params);
+    }
 }

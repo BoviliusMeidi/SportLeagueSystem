@@ -38,4 +38,12 @@ class APIController extends Controller
 
         return view('team.detailTeam', compact('team'));
     }
+    public function getStandings(){
+        $standings = $this->serviceProvider->getStandings();
+        if (isset($standings['errors']) && !empty($standings['errors'])) {
+            session()->flash('error', $standings['errors']['requests']);
+            return view('homepage', ['standings' => []]);
+        }
+        return view('homepage', compact('standings'));
+    }
 }
