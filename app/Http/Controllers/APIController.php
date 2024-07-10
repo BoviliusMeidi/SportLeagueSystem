@@ -38,13 +38,19 @@ class APIController extends Controller
 
         return view('team.detailTeam', compact('team'));
     }
-    public function getStandings(){
+    public function getStandingsAndFixtures(){
         $standings = $this->serviceProvider->getStandings();
         if (isset($standings['errors']) && !empty($standings['errors'])) {
             session()->flash('error', $standings['errors']['requests']);
             return view('homepage', ['standings' => []]);
         }
-        return view('homepage', compact('standings'));
+        $params = ['league' => 39, 'season' => 2024, 'round' => 'Regular Season - 1'];
+        $fixtures = $this->serviceProvider->getFixtures($params);
+        if (isset($fixtures['errors']) && !empty($fixtures['errors'])) {
+            session()->flash('error', $fixtures['errors']['requests']);
+            return view('homepage', ['fixtures' => []]);
+        }
+        return view('homepage', compact('standings', 'fixtures'));
     }
     public function getDetailStandings(){
         $standings = $this->serviceProvider->getStandings();
