@@ -12,6 +12,7 @@ use App\Http\Controllers\AuthenticationController;
 Route::controller(APIController::class)->group(function () {
     Route::get('/','getStandingsAndFixtures')->name('homepage');
     Route::get('/standings','getDetailStandings')->name('standings');
+    Route::get('/fixtures','getDetailFixtures')->name('fixtures');
     Route::get('/teams', 'getTeams')->name('allTeams');
     Route::get('/team/{id}/{name}', 'detailTeam')->name('detailTeam');
 });

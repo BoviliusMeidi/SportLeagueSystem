@@ -60,4 +60,13 @@ class APIController extends Controller
         }
         return view('standings', compact('standings'));
     }
+    public function getDetailFixtures(){
+        $fixtures = $this->serviceProvider->getFixtures();
+        // dd($fixtures);
+        if (isset($fixtures['errors']) && !empty($fixtures['errors'])) {
+            session()->flash('error', $fixtures['errors']['requests']);
+            return view('fixtures', ['fixtures' => []]);
+        }
+        return view('fixtures', compact('fixtures'));
+    }
 }
