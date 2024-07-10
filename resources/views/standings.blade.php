@@ -6,9 +6,10 @@
     @include('layouts.header')
     <div class="m-8">
         @if (isset($standings['response'][0]['league']['name']))
-            <div class="text-left mb-4">
+            <div class="flex flex-row text-left mb-4">
                 <h1 class="font-bold text-lg">{{ $standings['response'][0]['league']['name'] }}</h1>
-                <img src="{{ $standings['response'][0]['league']['logo'] }}" alt="{{ $standings['response'][0]['league']['logo'] }} Logo" class="w-6 h-6 mr-2">
+                <img src="{{ $standings['response'][0]['league']['logo'] }}"
+                    alt="{{ $standings['response'][0]['league']['logo'] }} Logo" class="w-6 h-6 mr-2">
             </div>
         @else
             <div class="text-left mb-4">
@@ -35,10 +36,11 @@
                     @foreach ($standings['response'][0]['league']['standings'][0] as $team)
                         <tr class="text-center border-b">
                             <td class="p-2 whitespace-nowrap">{{ $team['rank'] }}</td>
-                            <a href="{{ route('detailTeam', ['name'=> $team['team']['name'], 'id'=> $team['team']['id']]) }}">
-                                <td class="p-2 flex items-center justify-start whitespace-nowrap">
+                            <a
+                                href="{{ route('detailTeam', ['name' => $team['team']['name'], 'id' => $team['team']['id']]) }}">
+                                <td class="p-2 flex flex-col items-center justify-start whitespace-nowrap">
                                     <img src="{{ $team['team']['logo'] }}" alt="{{ $team['team']['name'] }}"
-                                    class="w-6 h-6 mr-2">
+                                        class="w-6 h-6 mr-2">
                                     {{ $team['team']['name'] }}
                                 </td>
                             </a>
@@ -47,7 +49,7 @@
                             <td class="p-2 whitespace-nowrap">{{ $team['all']['draw'] }}</td>
                             <td class="p-2 whitespace-nowrap">{{ $team['all']['lose'] }}</td>
                             <td class="p-2 whitespace-nowrap">{{ $team['all']['goals']['for'] }}</td>
-                            <td class="p-2 whitespace-nowrap">{{ $team['all']['goals']['againts'] }}</td>
+                            <td class="p-2 whitespace-nowrap">{{ $team['all']['goals']['against'] }}</td>
                             <td class="p-2 whitespace-nowrap">{{ $team['goalsDiff'] }}</td>
                             <td class="p-2 whitespace-nowrap">{{ $team['points'] }}</td>
                         </tr>
