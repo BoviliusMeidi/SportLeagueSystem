@@ -38,7 +38,8 @@ class APIController extends Controller
 
         return view('team.detailTeam', compact('team'));
     }
-    public function getStandingsAndFixtures(){
+    public function getStandingsAndFixtures()
+    {
         $standings = $this->serviceProvider->getStandings();
         if (isset($standings['errors']) && !empty($standings['errors'])) {
             session()->flash('error', $standings['errors']['requests']);
@@ -50,9 +51,20 @@ class APIController extends Controller
             session()->flash('error', $fixtures['errors']['requests']);
             return view('homepage', ['fixtures' => []]);
         }
-        return view('homepage', compact('standings', 'fixtures'));
+        $teams = $this->serviceProvider->getTeams();
+
+        // Create a mapping of team IDs to codes
+        $teamCodes = [];
+        if (isset($teams['response'])) {
+            foreach ($teams['response'] as $team) {
+                $teamCodes[$team['team']['id']] = $team['team']['code'];
+            }
+        }
+
+        return view('homepage', compact('standings', 'fixtures', 'teamCodes'));
     }
-    public function getDetailStandings(){
+    public function getDetailStandings()
+    {
         $standings = $this->serviceProvider->getStandings();
         if (isset($standings['errors']) && !empty($standings['errors'])) {
             session()->flash('error', $standings['errors']['requests']);
@@ -60,7 +72,8 @@ class APIController extends Controller
         }
         return view('standings', compact('standings'));
     }
-    public function getDetailFixtures(){
+    public function getDetailFixtures()
+    {
         $fixtures = $this->serviceProvider->getFixtures();
         // dd($fixtures);
         if (isset($fixtures['errors']) && !empty($fixtures['errors'])) {

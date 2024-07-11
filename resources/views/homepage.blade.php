@@ -20,28 +20,53 @@
                     </thead>
                     <tbody>
                         @if (isset($fixtures['response']))
-                            @foreach ($fixtures['response'] as $fixture)
+                            @php
+                                $groupedFixtures = [];
+                                foreach ($fixtures['response'] as $fixture) {
+                                    $date = date('Y-m-d', strtotime($fixture['fixture']['date']));
+                                    $groupedFixtures[$date][] = $fixture;
+                                }
+                            @endphp
+                            @foreach ($groupedFixtures as $date => $fixturesByDate)
                                 <tr>
-                                    <div class="flex flex-row justify-between py-2 bg-white">
-                                        <div class="flex-grow text-center">
-                                            <h2 class="font-bold">
-                                                {{ $fixture['teams']['home']['name'] }} <img
-                                                    src="{{ $fixture['teams']['home']['logo'] }}"
-                                                    alt="{{ $fixture['teams']['home']['name'] }}" class="w-6 h-6">
-                                                {{ date('H:i', strtotime($fixture['fixture']['date'])) }} <img
-                                                    src="{{ $fixture['teams']['away']['logo'] }}"
-                                                    alt="{{ $fixture['teams']['away']['name'] }}" class="w-6 h-6">
-                                                {{ $fixture['teams']['away']['name'] }}
-                                            </h2>
-                                        </div>
-                                        <a href="" class="ml-4">
-                                            <span class="material-symbols-sharp">
-                                                trending_flat
-                                            </span>
-                                        </a>
-                                    </div>
-                                    <hr class="border-t-3 border-gray-600">
+                                    <td colspan="5"
+                                        class="px-6 py-4 bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-100 text-center">
+                                        <h2 class="text-lg font-bold">{{ date('l, d F Y', strtotime($date)) }}</h2>
+                                    </td>
                                 </tr>
+                                @foreach ($fixturesByDate as $fixture)
+                                    <tr>
+                                        <div class="flex flex-col justify-between py-2 bg-white">
+                                            <div class="flex-grow text-center">
+                                                <div class="flex items-center justify-between">
+                                                    <div class="flex items-center">
+                                                        <h2 class="font-bold">
+                                                            {{ $teamCodes[$fixture['teams']['home']['id']] }}
+                                                        </h2>
+                                                        <img src="{{ $fixture['teams']['home']['logo'] }}"
+                                                            alt="{{ $fixture['teams']['home']['name'] }}"
+                                                            class="w-6 h-6 mx-2">
+                                                        <p>
+                                                            {{ date('H:i', strtotime($fixture['fixture']['date'])) }}
+                                                        </p>
+                                                        <img src="{{ $fixture['teams']['away']['logo'] }}"
+                                                            alt="{{ $fixture['teams']['away']['name'] }}"
+                                                            class="w-6 h-6 mx-2">
+                                                        <h2 class="font-bold">
+                                                            {{ $teamCodes[$fixture['teams']['away']['id']] }}
+                                                        </h2>
+                                                    </div>
+                                                    <a href="#" class="ml-4 flex items-center">
+                                                        <span class="material-symbols-sharp">
+                                                            trending_flat
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="border-t-3 border-gray-600">
+                                    </tr>
+                                @endforeach
                             @endforeach
                         @endif
                     </tbody>
