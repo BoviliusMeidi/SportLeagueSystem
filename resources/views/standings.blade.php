@@ -38,10 +38,10 @@
                             <td class="p-2 whitespace-nowrap">{{ $team['rank'] }}</td>
                             <a
                                 href="{{ route('detailTeam', ['name' => $team['team']['name'], 'id' => $team['team']['id']]) }}">
-                                <td class="p-2 flex flex-col items-center justify-start whitespace-nowrap">
+                                <td class="p-2 flex     items-center whitespace-nowrap">
                                     <img src="{{ $team['team']['logo'] }}" alt="{{ $team['team']['name'] }}"
                                         class="w-6 h-6 mr-2">
-                                    {{ $team['team']['name'] }}
+                                    <p>{{ $team['team']['name'] }}</p>
                                 </td>
                             </a>
                             <td class="p-2 whitespace-nowrap">{{ $team['all']['played'] }}</td>
