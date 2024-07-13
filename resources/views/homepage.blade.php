@@ -11,7 +11,7 @@
                 <table class="w-full rounded-lg">
                     <thead>
                         <tr>
-                            <div class="bg-green-200 rounded-xl">
+                            <div class="bg-green-200 rounded-t-xl">
                                 <h1 class="text-center font-bold">MatchWeek {{ $fixtures[0]['league']['round'] ?? '' }}
                                 </h1>
                                 <h1 class="text-center">All times shown are your <b>local time</b></h1>
@@ -38,10 +38,10 @@
                                 @foreach ($fixturesByDate as $fixture)
                                     <tr>
                                         <td colspan="5" class="px-4">
-                                            <div class="flex flex-col justify-between py-2 bg-white">
-                                                <div class="flex flex-row text-center">
-                                                    <div class="object-center">
-                                                        <div class="flex items-center mx-auto">
+                                            <div class="flex flex-col object-center py-2 bg-white">
+                                                <div class="flex flex-row items-center text-center">
+                                                    <div class="object-center flex-1">
+                                                        <div class="flex items-center justify-center mx-auto">
                                                             <h2 class="font-bold">
                                                                 {{ $teamCodes[$fixture['teams']['home']['id']] }}
                                                             </h2>
@@ -59,7 +59,7 @@
                                                             </h2>
                                                         </div>
                                                     </div>
-                                                    <a href="#" class="objet-right ml-auto">
+                                                    <a href="#" class="ml-auto">
                                                         <span class="material-symbols-sharp">
                                                             trending_flat
                                                         </span>
